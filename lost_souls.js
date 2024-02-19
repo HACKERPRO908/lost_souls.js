@@ -37,3 +37,12 @@ elements.soul_fish = {
         "alcohol": { elem1:"meat", chance:0.001 },
     }
     };
+elements.soul_anger_block = {
+    color: ["#eb4034","#ed2415"], 
+    category: "soul",
+    behavior: [
+       "HT|HT|HT",
+       "HT|HT|HT",
+       "HT|CR:flash|HT",
+    ],
+};
