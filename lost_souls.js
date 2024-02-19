@@ -4,7 +4,8 @@ elements.ghost_particle = {
 	category: "soul",
 	state: "gas",
 };
-"soul_fish": {
+
+elements.soul_fish = {
     color: "#ac8650",
     category: "soul",
     behavior: [
@@ -34,4 +35,5 @@ elements.ghost_particle = {
         "cell": { elem2:null, chance:0.15, func:behaviors.FEEDPIXEL },
         "crumb": { elem2:null, chance:0.1, func:behaviors.FEEDPIXEL },
         "alcohol": { elem1:"meat", chance:0.001 },
-    },
+    }
+    };
