@@ -42,7 +42,7 @@ elements.soul_anger_block = {
     category: "soul",
     behavior: [
        "HT|HT|HT",
-       "HT|HT|HT",
-       "HT|CR:flash|HT",
+       "CR:heat_ray|HT|CR:heat_ray",
+       "HT|CR:heat_ray|HT",
     ],
 };
