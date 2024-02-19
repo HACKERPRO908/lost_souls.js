@@ -6,7 +6,7 @@ elements.ghost_particle = {
 };
 "soul_fish": {
     color: "#ac8650",
-    category: "souls",
+    category: "soul",
     behavior: [
        "XX|CR:flash|XX",
         "CR:flash|XX|CR:flash",
