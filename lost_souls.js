@@ -46,3 +46,27 @@ elements.soul_anger_block = {
        "HT|CR:heat_ray|HT",
     ],
 };
+elements.soul_dirt = {
+		color: ["#999a98", "#e6e7e2", "#dddcda"],
+		behavior: behaviors.POWDER,
+		properties: {
+			methaned: false,
+		},
+		tick: function(pixel) {
+			spreadLifeEater(pixel).forEach(infectedPixel => spreadLifeEater(infectedPixel));
+			
+			if(pixelTicks - pixel.start > 6) {
+				if(!pixel.methaned && Math.random() < 0.2) {
+					changePixel(pixel,Math.random() < 0.2 ? "ghost_particle" : "ghost_particle");
+				} else {
+					pixel.methaned = true;
+				};
+				tryCreatePlus(["ghost_particle","ghost_particle"],pixel.x,pixel.y);
+				return;
+			};
+		},
+		category: "soul",
+		state: "powder",
+		density: 1050,
+		excludeRandom: true,
+	};
