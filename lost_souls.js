@@ -10,8 +10,8 @@ elements.soul_fish = {
     category: "soul",
     behavior: [
        "XX|CR:flash|XX",
-        "CR:flash|XX|CR:flash",
-        "XX|CR:flash|XX",
+        "CR:flash AND M2|XX|CR:flash AND M2",
+        "M1|CR:flash AND M1|M1",
     ],
     reactions: {
         "algae": { elem2:null, chance:0.25, func:behaviors.FEEDPIXEL },
