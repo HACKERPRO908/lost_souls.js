@@ -9,9 +9,9 @@ elements.soul_fish = {
     color: ["#808080","#a52a2a"], 
     category: "soul",
     behavior: [
-       "XX|CR:flash|XX",
-        "CR:flash AND M2|XX|CR:flash AND M2",
-        "M1|CR:flash AND M1|M1",
+            "XX|M2|M1",
+	    "XX|FX%2|BO",
+	    "XX|XX|M1",
     ],
     reactions: {
         "algae": { elem2:null, chance:0.25, func:behaviors.FEEDPIXEL },
@@ -35,7 +35,12 @@ elements.soul_fish = {
         "cell": { elem2:null, chance:0.15, func:behaviors.FEEDPIXEL },
         "crumb": { elem2:null, chance:0.1, func:behaviors.FEEDPIXEL },
         "alcohol": { elem1:"meat", chance:0.001 },
-    }
+    },
+	tempHigh: 50000,
+	stateHigh: "ghost_particle",
+	category:"soul",
+	state: "solid",
+	density: 1080,
     };
 elements.soul_anger_block = {
     color: ["#eb4034","#ed2415"], 
