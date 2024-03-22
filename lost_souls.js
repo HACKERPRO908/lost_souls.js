@@ -65,7 +65,6 @@ elements.soul_dirt = {
 				} else {
 					pixel.methaned = true;
 				};
-				createPixel("ghost_particle",pixel.x,pixel.y);
 			};
 			pixel.age++
 		},
