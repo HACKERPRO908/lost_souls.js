@@ -1,6 +1,6 @@
 elements.ghost_particle = {
 	color: "#d9d2d0",
-	behavior: behaviors.GAS,
+	behavior: behaviors.DGAS,
 	category: "soul",
 	state: "gas",
 };
@@ -113,6 +113,24 @@ elements.death_reaper = {
 	state: "solid",
 	density: 1500,
 };
+elements.tombstone = {
+    color: "#aaaaaa",
+    behavior: behaviors.STURDYPOWDER,
+    tempHigh: 1500,
+    tick: function(pixel) {
+            if (isEmpty(pixel.x+1,pixel.y) && Math.random() < 0.1) {
+                createPixel("ghost_particle",pixel.x+1,pixel.y);
+        }
+        doDefaults(pixel);
+    },
+    stateHigh: "magma",
+    category: "soul",
+    state: "solid",
+    density: 2400,
+    hardness: 0.5,
+    breakInto: "dust",
+    darkText: true
+}
 elements.tombstone_seed = {
     color: "#eeeff2",
     tick: function(pixel) {
@@ -127,20 +145,20 @@ elements.tombstone_seed = {
             isEmpty(pixel.x+1,pixel.y-3) &&
             isEmpty(pixel.x-1,pixel.y-3) &&
             isEmpty(pixel.x,pixel.y-3)) {
-                createPixel("rock_wall",pixel.x+1,pixel.y);
-                createPixel("rock_wall",pixel.x-1,pixel.y);
-                createPixel("rock_wall",pixel.x+1,pixel.y-1);
-                createPixel("rock_wall",pixel.x-1,pixel.y-1);
-                createPixel("rock_wall",pixel.x,pixel.y-1);
-                createPixel("rock_wall",pixel.x+1,pixel.y-2);
-                createPixel("rock_wall",pixel.x-1,pixel.y-2);
-                createPixel("rock_wall",pixel.x,pixel.y-2);
-                createPixel("rock_wall",pixel.x+1,pixel.y-3);
-                createPixel("rock_wall",pixel.x-1,pixel.y-3);
-                createPixel("rock_wall",pixel.x,pixel.y-3);
+                createPixel("tombstone",pixel.x+1,pixel.y);
+                createPixel("tombstone",pixel.x-1,pixel.y);
+                createPixel("tombstone",pixel.x+1,pixel.y-1);
+                createPixel("tombstone",pixel.x-1,pixel.y-1);
+                createPixel("tombstone",pixel.x,pixel.y-1);
+                createPixel("tombstone",pixel.x+1,pixel.y-2);
+                createPixel("tombstone",pixel.x-1,pixel.y-2);
+                createPixel("tombstone",pixel.x,pixel.y-2);
+                createPixel("tombstone",pixel.x+1,pixel.y-3);
+                createPixel("tombstone",pixel.x-1,pixel.y-3);
+                createPixel("tombstone",pixel.x,pixel.y-3);
         }
         if (pixel.age > 100) {
-            changePixel(pixel,"rock_wall");
+            changePixel(pixel,"tombstone");
         }
         pixel.age++
         doDefaults(pixel);
