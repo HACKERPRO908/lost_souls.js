@@ -113,3 +113,47 @@ elements.death_reaper = {
 	state: "solid",
 	density: 1500,
 };
+elements.tombstone_seed = {
+    color: "#eeeff2",
+    tick: function(pixel) {
+            if (isEmpty(pixel.x+1,pixel.y) &&
+            isEmpty(pixel.x-1,pixel.y) 
+            isEmpty(pixel.x+1,pixel.y-1) &&
+            isEmpty(pixel.x-1,pixel.y-1) &&
+            isEmpty(pixel.x,pixel.y-1) &&
+            isEmpty(pixel.x+1,pixel.y-2) &&
+            isEmpty(pixel.x-1,pixel.y-2) &&
+            isEmpty(pixel.x,pixel.y-2) &&
+            isEmpty(pixel.x+1,pixel.y-3) &&
+            isEmpty(pixel.x-1,pixel.y-3) &&
+            isEmpty(pixel.x,pixel.y-3)) {
+                createPixel("rock_wall",pixel.x+1,pixel.y);
+                createPixel("rock_wall",pixel.x-1,pixel.y);
+                createPixel("rock_wall",pixel.x+1,pixel.y-1);
+                createPixel("rock_wall",pixel.x-1,pixel.y-1);
+                createPixel("rock_wall",pixel.x,pixel.y-1);
+                createPixel("rock_wall",pixel.x+1,pixel.y-2);
+                createPixel("rock_wall",pixel.x-1,pixel.y-2);
+                createPixel("rock_wall",pixel.x,pixel.y-2);
+                createPixel("rock_wall",pixel.x+1,pixel.y-3);
+                createPixel("rock_wall",pixel.x-1,pixel.y-3);
+                createPixel("rock_wall",pixel.x,pixel.y-3);
+        }
+        if (pixel.age > 100) {
+            changePixel(pixel,"rock_wall");
+        }
+        pixel.age++
+        doDefaults(pixel);
+    },
+    properties: {
+        age:0
+    },
+    category: "soul",
+    state: "solid",
+    density: 1500,
+    cooldown: defaultCooldown,
+    seed: true,
+    maxSize: 1,
+    excludeRandom: true,
+    behavior: behaviors.STURDYPOWDER,
+};
