@@ -174,4 +174,4 @@ elements.tombstone_seed = {
     maxSize: 1,
     excludeRandom: true,
     behavior: behaviors.STURDYPOWDER,
-};
+}
